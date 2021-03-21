@@ -1,0 +1,125 @@
+{
+  "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "defaultProject": "cafe-xyz",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  },
+  "projects": {
+    "cafe-xyz": {
+      "root": "apps/cafe-xyz",
+      "sourceRoot": "apps/cafe-xyz/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/cafe-xyz",
+            "index": "apps/cafe-xyz/src/index.html",
+            "main": "apps/cafe-xyz/src/main.tsx",
+            "polyfills": "apps/cafe-xyz/src/polyfills.ts",
+            "tsConfig": "apps/cafe-xyz/tsconfig.app.json",
+            "assets": [
+              "apps/cafe-xyz/src/favicon.ico",
+              "apps/cafe-xyz/src/assets"
+            ],
+            "styles": ["apps/cafe-xyz/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cafe-xyz/src/environments/environment.ts",
+                  "with": "apps/cafe-xyz/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "cafe-xyz:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "cafe-xyz:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cafe-xyz/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/cafe-xyz"],
+          "options": {
+            "jestConfig": "apps/cafe-xyz/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "cafe-xyz-e2e": {
+      "root": "apps/cafe-xyz-e2e",
+      "sourceRoot": "apps/cafe-xyz-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/cafe-xyz-e2e/cypress.json",
+            "tsConfig": "apps/cafe-xyz-e2e/tsconfig.e2e.json",
+            "devServerTarget": "cafe-xyz:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cafe-xyz:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cafe-xyz-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
