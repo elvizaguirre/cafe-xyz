@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+
+#header-global {
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    align-self: center;
+    image-rendering: optimizeQuality;
+}
+
+#footer-global {
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    align-self: center;
+    image-rendering: optimizeQuality;
+}
+
+.header {
+    display: flex;
+  /*  background: linear-gradient(#6616fc, #f394d3); */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    height: 80px;
+  }
+  .logo-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+  .nav-options {
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 50px;
+    list-style-type: none;
+  }
+  .mobile-option {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  
+  .option :hover {
+    color: rgb(2, 0, 0);
+  }
+  .signin-up {
+    display: flex;
+    padding: 0px 5px;
+    list-style-type: none;
+  }
+  .sign-in {
+    padding-right: 50px;
+    align-self: center;
+  }
+  .sign-in :hover {
+    color: rgb(250, 3, 3);
+  }
+  .signup-btn {
+    padding: 10px 10px;
+    height: 2.4rem;
+    border-radius: 3px;
+    background: rgb(238, 54, 54);
+    color: white;
+    cursor: pointer;
+    align-items: center;
+  }

@@ -1,34 +1,24 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "cafe-xyz",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "cafe-xyz": {
-      "tags": []
-    },
-    "cafe-xyz-e2e": {
-      "tags": [],
-      "implicitDependencies": ["cafe-xyz"]
-    }
+    "cafe-xyz": { "tags": [] },
+    "cafe-xyz-e2e": { "tags": [], "implicitDependencies": ["cafe-xyz"] },
+    "api": { "tags": [] },
+    "data": { "tags": [] }
   }
 }
